@@ -206,7 +206,7 @@ class KochRobotConfig(ManipulatorRobotConfig):
     leader_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": DynamixelMotorsBusConfig(
-                port="/dev/tty.usbmodem585A0085511",
+                port="/dev/serial/by-id/usb-ROBOTIS_OpenRB-150_EFB274B350304A46462E3120FF0B0B30-if00",
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "xl330-m077"],
@@ -223,7 +223,7 @@ class KochRobotConfig(ManipulatorRobotConfig):
     follower_arms: dict[str, MotorsBusConfig] = field(
         default_factory=lambda: {
             "main": DynamixelMotorsBusConfig(
-                port="/dev/tty.usbmodem585A0076891",
+                port="/dev/serial/by-id/usb-ROBOTIS_OpenRB-150_2E54F76650304A46462E3120FF083328-if00",
                 motors={
                     # name: (index, model)
                     "shoulder_pan": [1, "xl430-w250"],
@@ -239,18 +239,8 @@ class KochRobotConfig(ManipulatorRobotConfig):
 
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "laptop": OpenCVCameraConfig(
-                camera_index=0,
-                fps=30,
-                width=640,
-                height=480,
-            ),
-            "phone": OpenCVCameraConfig(
-                camera_index=1,
-                fps=30,
-                width=640,
-                height=480,
-            ),
+            "front": OpenCVCameraConfig(camera_index=2, fps=30, width=640, height=480),
+            "top": OpenCVCameraConfig(camera_index=0, fps=30, width=640, height=480),
         }
     )
 
