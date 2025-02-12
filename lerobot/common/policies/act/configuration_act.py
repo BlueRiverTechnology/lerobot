@@ -18,6 +18,7 @@ from dataclasses import dataclass, field
 from lerobot.common.optim.optimizers import AdamWConfig
 from lerobot.configs.policies import PreTrainedConfig
 from lerobot.configs.types import NormalizationMode
+from lerobot.common.optim.schedulers import DiffuserSchedulerConfig
 
 
 @PreTrainedConfig.register_subclass("act")
