@@ -92,8 +92,8 @@ class ACTConfig(PreTrainedConfig):
 
     # Input / output structure.
     n_obs_steps: int = 1
-    chunk_size: int = 10
-    n_action_steps: int = 10
+    chunk_size: int = 32
+    n_action_steps: int = 32
 
     normalization_mapping: dict[str, NormalizationMode] = field(
         default_factory=lambda: {
@@ -136,6 +136,8 @@ class ACTConfig(PreTrainedConfig):
     optimizer_lr: float = 1e-5
     optimizer_weight_decay: float = 1e-4
     optimizer_lr_backbone: float = 1e-5
+    scheduler_name: str = "cosine"
+    scheduler_warmup_steps: int = 500
 
     def __post_init__(self):
         super().__post_init__()
@@ -166,8 +168,14 @@ class ACTConfig(PreTrainedConfig):
             weight_decay=self.optimizer_weight_decay,
         )
 
-    def get_scheduler_preset(self) -> None:
-        return None
+    def get_scheduler_preset(self) -> DiffuserSchedulerConfig:
+        return DiffuserSchedulerConfig(
+            name=self.scheduler_name,
+            num_warmup_steps=self.scheduler_warmup_steps,
+        )
+
+#    def get_scheduler_preset(self) -> None:
+#        return None
 
     def validate_features(self) -> None:
         if not self.image_features and not self.env_state_feature:
