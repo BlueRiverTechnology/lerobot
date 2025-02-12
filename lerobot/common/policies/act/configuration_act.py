@@ -93,8 +93,8 @@ class ACTConfig(PreTrainedConfig):
 
     # Input / output structure.
     n_obs_steps: int = 1
-    chunk_size: int = 32
-    n_action_steps: int = 32
+    chunk_size: int = 100
+    n_action_steps: int = 100
 
     normalization_mapping: dict[str, NormalizationMode] = field(
         default_factory=lambda: {
