@@ -239,11 +239,11 @@ class KochRobotConfig(ManipulatorRobotConfig):
 
     cameras: dict[str, CameraConfig] = field(
         default_factory=lambda: {
-            "front": OpenCVCameraConfig(camera_index=2, fps=30, width=640, height=480),
-            "low": OpenCVCameraConfig(camera_index=4, fps=30, width=640, height=480),
-            "top": OpenCVCameraConfig(camera_index=5, fps=30, width=640, height=480),
+            "front": OpenCVCameraConfig(camera_index=0, fps=30, width=640, height=480),
+            "low": OpenCVCameraConfig(camera_index=2, fps=30, width=640, height=480),
+            "top": OpenCVCameraConfig(camera_index=8, fps=30, width=640, height=480),
             #"back_near_arm": OpenCVCameraConfig(camera_index=8, fps=30, width=640, height=480),
-            "back_near_tractor": OpenCVCameraConfig(camera_index=10, fps=30, width=640, height=480),
+            "back_near_tractor": OpenCVCameraConfig(camera_index=6, fps=30, width=640, height=480),
         }
     )
 
