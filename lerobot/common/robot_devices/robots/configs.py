@@ -245,6 +245,13 @@ class KochRobotConfig(ManipulatorRobotConfig):
             #"back_near_arm": OpenCVCameraConfig(camera_index=8, fps=30, width=640, height=480),
             "back_near_tractor": OpenCVCameraConfig(camera_index=6, fps=30, width=640, height=480),
         }
+        # default_factory=lambda: {
+        #     "low": OpenCVCameraConfig(camera_index=14, fps=30, width=640, height=480),
+        #     "front": OpenCVCameraConfig(camera_index=10, fps=30, width=640, height=480),
+        #     # "top": OpenCVCameraConfig(camera_index=8, fps=90, width=640, height=480),
+        #     #"back_near_arm": OpenCVCameraConfig(camera_index=8, fps=30, width=640, height=480),
+        #     # "back_near_tractor": OpenCVCameraConfig(camera_index=6, fps=90, width=640, height=480),
+        # }
     )
 
     # ~ Koch specific settings ~
